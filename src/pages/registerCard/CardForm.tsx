@@ -39,8 +39,24 @@ const CardForm = () => {
     if (error) setExpiryError(error)
   }
 
-  const submitHandler = () => {
-    console.log('Submitted')
+  const registerCard = (body: RegisterCardBody) => {
+    console.log(body)
+  }
+
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault()
+    cardNumberBlur()
+    cvcBlur()
+    expiryBlur()
+    if (cardNumber && cvc && expiry && !cardNumberError && !cvcError && !expiryError) {
+      const body = {
+        cardNumber,
+        cvc,
+        expiry: formatExpiryDate(expiry).toISOString()
+      }
+      registerCard(body)
+    } 
+    else console.log('Form submission unsuccessful, check required fields.')
   }
 
   return (
