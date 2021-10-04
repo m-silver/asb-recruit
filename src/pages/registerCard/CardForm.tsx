@@ -80,6 +80,9 @@ const CardForm = () => {
             onBlur={cardNumberBlur}
             error={cardNumberError ? true : false}
             helperText={cardNumberError}
+            inputProps={{
+              'data-testid': 'cardNumber'
+            }}
           />
         </Grid>
 
@@ -100,6 +103,9 @@ const CardForm = () => {
               onBlur={cvcBlur}
               error={cvcError ? true : false}
               helperText={cvcError}
+              inputProps={{
+                'data-testid': 'cvc'
+              }}
             />
           </Grid>
 
@@ -119,6 +125,9 @@ const CardForm = () => {
               onBlur={expiryBlur}
               error={expiryError ? true : false}
               helperText={expiryError}
+              inputProps={{
+                'data-testid': 'expiry'
+              }}
             />
           </Grid>
         </Grid>
