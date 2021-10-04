@@ -25,3 +25,22 @@ body {
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.registerCard {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
+
+@media screen and (max-width: 1200px) {
+  .registerCard {
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+}
+
+.cardForm {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
