@@ -1,11 +1,11 @@
 import React, {useState, createContext} from 'react'
 
-type MenuOpenContext = {
+type MenuOpenContextType = {
   menuOpen: boolean
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const MenuOpenContext = createContext<MenuOpenContext>(undefined!)
+export const MenuOpenContext = createContext<MenuOpenContextType>(undefined!)
 
 export const MenuOpenProvider: React.FunctionComponent = ({children}) => {
 	const [menuOpen, setMenuOpen] = useState(false)
