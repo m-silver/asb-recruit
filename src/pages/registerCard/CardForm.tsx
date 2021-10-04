@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import NumberFormat from 'react-number-format'
 import {
   Button,
 	TextField,
@@ -19,13 +20,17 @@ const CardForm = () => {
     <form className='cardForm' onSubmit={submitHandler}>
       <Grid container direction='column' spacing={5}>
         <Grid item>
-          <TextField
+          <NumberFormat
+            format='#### #### #### ####'
+            customInput={TextField}
             name='cardNumber'
             label='Card Number'
             type='text'
             placeholder='1234 1234 1234 1234'
             value={cardNumber}
-            onChange={e => setCardNumber(e.target.value)}
+            onValueChange={({value}) => {
+              setCardNumber(value)
+            }}
             required
             autoFocus
             fullWidth
@@ -34,26 +39,33 @@ const CardForm = () => {
 
         <Grid container item direction='row' spacing={3}>
           <Grid item>
-            <TextField 
-
+            <NumberFormat 
+              format='###'
+              customInput={TextField}
               name='cvc'
               label='CVC'
               type='text'
               placeholder='123'
               value={cvc}
-              onChange={e => setCvc(e.target.value)}
+              onValueChange={({value}) => {
+                setCvc(value)
+              }}
               required
             />
           </Grid>
 
           <Grid item>
-            <TextField 
+            <NumberFormat 
+              format='##/##'
+              customInput={TextField}
               name='expiry'
               label='Expiry Date'
               type='text'
               placeholder='MM/YY'
               value={expiry}
-              onChange={e => setExpiry(e.target.value)}
+              onValueChange={({value}) => {
+                setExpiry(value)
+              }}
               required
             />
           </Grid>
