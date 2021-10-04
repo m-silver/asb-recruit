@@ -1,10 +1,16 @@
-import MenuContent from './MenuContent'
+import { useContext } from 'react'
+import { Backdrop } from '@mui/material'
+
+import MenuContent from "./MenuContent"
+import { MenuOpenContext } from '../../context/MenuContext'
 
 const Menu = () => {
+  const {menuOpen} = useContext(MenuOpenContext)
+  
   return (
-    <>
-      Menu
-    </>
+    <Backdrop open={menuOpen}>
+      <MenuContent />
+    </Backdrop>
   )
 }
 
